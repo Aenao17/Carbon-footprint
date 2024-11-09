@@ -1,0 +1,16 @@
+Tutorial pentru baza de date(daca stiti si altfel e perfect)
+Sa nu uiti sa schimbi in app.prop numele bazei de date pe care urmeaza sa o creezi
+
+Eu am folosit comenzi in ubuntu pentru a instala postgresql.Anume:
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+asa pornesti sv:sudo systemctl start postgresql
+
+CREATE DATABASE testdb;
+CREATE USER testuser WITH ENCRYPTED PASSWORD 'testpass';
+GRANT ALL PRIVILEGES ON DATABASE testdb TO testuser;
+\l  --> Listeaza toate bazele de date
+\du --> Listeaza toți utilizatorii
+
+cam atat ;)
