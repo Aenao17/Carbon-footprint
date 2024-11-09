@@ -1,16 +1,90 @@
-.flex-center{
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #d5e8d4; /* Light green background */
 }
 
-.input-group{
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+.ion-card {
+    background-color: #ffffff; /* White card background */
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
 }
 
-.label{
-    font-size: 100px;
+.ion-card-title {
+    color: #4a7c4a; /* Darker green for the title */
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.ion-item {
+    --background: transparent;
+    --inner-padding-end: 0;
+    margin-bottom: 1.2rem;
+}
+
+.input-group {
+    --background: #eef7ee; /* Light green background for inputs */
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --border-radius: 8px;
+    --placeholder-color: #6a936a;
+    --color: #2c5f2c; /* Dark green for input text */
+    border: 1px solid #b5d3b5;
+}
+
+.input-group input {
+    font-size: 1rem;
+    color: #2c5f2c;
+}
+
+a {
+    color: #4a7c4a; /* Medium green for links */
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 0.5rem;
+    align-content: end;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.ion-button {
+    --background: #66bb6a; /* Medium green button */
+    --border-radius: 10px;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --padding-top: 0.8rem;
+    --padding-bottom: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.ion-button:hover {
+    background-color: #5ca85c; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.ion-button:active {
+    background-color: #4a9e4a; /* Even darker green on active */
+    transform: translateY(0);
+    opacity: 0.9;
+}
+
+.ion-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(102, 187, 106, 0.2);
 }

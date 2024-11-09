@@ -42,29 +42,24 @@ const Login = () => {
 
     return (
         <div className="flex-center">
-            <IonCard>
+            <IonCard className="ion-card">
                 <IonCardHeader>
-                    <IonCardTitle color="primary">Login</IonCardTitle>
+                    <IonCardTitle class="ion-card-title">Login</IonCardTitle>
                 </IonCardHeader>
 
                 <IonCardContent>
-                    <IonItem>
-                        <IonLabel position="stacked" class="label">Email</IonLabel>
-                        <IonInput value={email} type="email" class="input-group" onIonChange={e=>setEmail(e.detail.value!)}></IonInput>
+                    <IonItem className="ion-item">
+                        <IonInput className="input-group" value={email} placeholder="Email" type="email" class="input-group" onIonChange={e=>setEmail(e.detail.value!)}></IonInput>
                     </IonItem>
 
-                    <IonItem>
-                        <IonLabel position="stacked" class="label">Password</IonLabel>
-                        <IonInput value={password} type="password" class="input-group" onIonChange={e=>setPassword(e.detail.value!)} ></IonInput>
+                    <IonItem className="ion-item">
+                        <IonInput className="input-group" value={password} placeholder="Password" type="password" class="input-group" onIonChange={e=>setPassword(e.detail.value!)} ></IonInput>
                     </IonItem>
+                    <IonLabel>
+                        <a href="/register">Register</a>
+                    </IonLabel>
 
-                    <IonItem>
-                        <IonLabel>
-                            <a href="/register">Register</a>
-                        </IonLabel>
-                    </IonItem>
-
-                    <IonButton expand="block" color="primary" onClick={handleLogin}>Login</IonButton>
+                    <IonButton className="ion-button" expand="block" onClick={handleLogin}>Login</IonButton>
 
                 </IonCardContent>
 

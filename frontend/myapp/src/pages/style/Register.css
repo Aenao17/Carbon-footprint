@@ -1,6 +1,63 @@
-.flex-center{
+/* Register.css */
+
+.flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: darkseagreen; /* Soft light green background */
+}
+
+.ion-col {
+    background-color: #ffffff; /* White form background */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.ion-input {
+    margin-bottom: 1.5rem;
+    --background: #f0f9f0; /* Light green background for inputs */
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --border-radius: 8px;
+    --placeholder-color: #6a936a; /* Darker green for placeholders */
+    --color: #2c5f2c; /* Dark green for text */
+    border: 1px solid #c2e0c2;
+}
+
+.ion-input input {
+    font-size: 1rem;
+    color: #2c5f2c; /* Ensure input text is dark green */
+}
+
+.ion-button {
+    --background: #66bb6a; /* Medium green button */
+    --border-radius: 8px;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    --padding-top: 0.8rem;
+    --padding-bottom: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ffffff; /* White text for button */
+    transition: all 0.3s ease;
+}
+
+.ion-button:hover {
+    background-color: #5ca85c; /* Darker green on hover */
+    transform: translateY(-2px);
+}
+
+.ion-button:active {
+    background-color: #4a9e4a; /* Even darker green on active */
+    transform: translateY(0);
+    opacity: 0.9;
+}
+
+.ion-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(102, 187, 106, 0.2); /* Green focus outline */
 }
