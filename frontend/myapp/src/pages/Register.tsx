@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 
-import {IonButton, IonInput, IonItem, IonLabel, IonCol} from "@ionic/react";
+import {IonButton, IonInput, IonCol} from "@ionic/react";
+
+import './style/Register.css';
 
 const Register = () => {
 
@@ -40,13 +42,13 @@ const Register = () => {
 
     return (
         <div className="flex-center">
-        <IonCol size="5" >
-            <IonInput value={firstName} placeholder="First Name" type="text"></IonInput>
-            <IonInput value={lastName} placeholder="Last Name" type="text"></IonInput>
-            <IonInput value={email} placeholder="Email" type="email"></IonInput>
-            <IonInput value={password} placeholder="Password" type="password"></IonInput>
-            <IonInput value={confirmPassword} placeholder="Confirm Password" type="password"></IonInput>
-            <IonButton expand="block" onClick={handleRegister}>Register</IonButton>
+        <IonCol class="ion-col" size="5" >
+            <IonInput value={firstName} class="ion-input" placeholder="First Name" type="text" onIonChange={e=>setFirstName(e.detail.value!)}></IonInput>
+            <IonInput value={lastName} class='ion-input' placeholder="Last Name" type="text" onIonChange={e=>setLastName(e.detail.value!)}></IonInput>
+            <IonInput value={email} class='ion-input' placeholder="Email" type="email" onIonChange={e=>setEmail(e.detail.value!)}></IonInput>
+            <IonInput value={password} class='ion-input' placeholder="Password" type="password" onIonChange={e=>setPassword(e.detail.value!)}></IonInput>
+            <IonInput value={confirmPassword} class='ion-input' placeholder="Confirm Password" type="password" onIonChange={e=>setConfirmPassword(e.detail.value!)}></IonInput>
+            <IonButton expand="block" className='ion-button' onClick={handleRegister}>Register</IonButton>
         </IonCol>
         </div>
     );
