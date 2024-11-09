@@ -9,7 +9,7 @@ import {
     IonLabel
 } from "@ionic/react";
 import React, {useState} from "react";
-import './Login.css';
+import './style/Login.css';
 
 const Login = () => {
 
@@ -56,6 +56,12 @@ const Login = () => {
                     <IonItem>
                         <IonLabel position="stacked" class="label">Password</IonLabel>
                         <IonInput value={password} type="password" class="input-group" onIonChange={e=>setPassword(e.detail.value!)} ></IonInput>
+                    </IonItem>
+
+                    <IonItem>
+                        <IonLabel>
+                            <a href="/register">Register</a>
+                        </IonLabel>
                     </IonItem>
 
                     <IonButton expand="block" color="primary" onClick={handleLogin}>Login</IonButton>
