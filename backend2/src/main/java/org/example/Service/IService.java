@@ -1,5 +1,6 @@
 package org.example.Service;
 
+import org.example.Domain.Question;
 import org.example.Domain.User;
 
 import java.util.List;
@@ -13,4 +14,5 @@ public interface IService {
 
 
     void addUser(User user);
+    void addQuestion(Question question);
 }

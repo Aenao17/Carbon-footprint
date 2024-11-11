@@ -1,7 +1,10 @@
 package org.example.Service;
 
 
+import org.example.Domain.Question;
 import org.example.Domain.User;
+import org.example.Repository.QuestionRepository;
+import org.example.Repository.SurveyRepository;
 import org.example.Repository.UserRepository;
 
 import java.util.HashMap;
@@ -13,17 +16,18 @@ import java.util.concurrent.Executors;
 public class Service implements IService {
 
     UserRepository userRepository;
-//    WordRepository wordRepository;
-//    GameRepository gameRepository;
+    QuestionRepository questionRepository;
+    SurveyRepository surveyRepository;
 
     private Map<String, IObserver> loggedClients = new HashMap<>();
     ExecutorService executorService = Executors.newFixedThreadPool(5);
 
 
-    public Service(UserRepository userRepository){//, WordRepository wordRepository, GameRepository gameRepository) {
+    public Service(UserRepository userRepository, QuestionRepository questionRepository,
+                   SurveyRepository surveyRepository) {
         this.userRepository = userRepository;
-//        this.wordRepository = wordRepository;
-//        this.gameRepository = gameRepository;
+        this.questionRepository = questionRepository;
+        this.surveyRepository = surveyRepository;
     }
 
     public User login(String username, String password, IObserver iobs){
@@ -44,9 +48,19 @@ public class Service implements IService {
     public void logout(User user, IObserver client) throws Exception {}
 
     @Override
-    public void addUser(User user) { // S-ar putea sa avem nevoie si de un antet cu atomii user (string username ...)
+    public void addUser(User user) {
 //        int id = userRepository.getAll().size() + 1;
         userRepository.add(user);
+        executorService.submit(() -> {
+            for (IObserver client : loggedClients.values()) {
+                client.update();
+            }
+        });
+    }
+
+    @Override
+    public void addQuestion(Question question) {
+        questionRepository.add(question);
         executorService.submit(() -> {
             for (IObserver client : loggedClients.values()) {
                 client.update();

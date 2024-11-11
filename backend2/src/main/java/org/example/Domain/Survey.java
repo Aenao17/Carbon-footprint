@@ -3,13 +3,14 @@ package org.example.Domain;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 
 import java.util.List;
 import java.util.Map;
 
 @jakarta.persistence.Entity
 @Table(name = "Surveys")
-public class Survey {
+public class Survey implements org.example.Domain.Entity<Integer> {
 
     @Id
     @Column(name = "id")

@@ -2,6 +2,8 @@ package org.example.Service;
 
 
 import org.example.Domain.User;
+import org.example.Repository.QuestionRepository;
+import org.example.Repository.SurveyRepository;
 import org.example.Repository.UserRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,17 +19,18 @@ import java.util.concurrent.Executors;
 public class RestService {
 
     UserRepository userRepository;
-//    WordRepository wordRepository;
-//    GameRepository gameRepository;
+    QuestionRepository questionRepository;
+    SurveyRepository surveyRepository;
 
     private Map<String, IObserver> loggedClients = new HashMap<>();
     ExecutorService executorService = Executors.newFixedThreadPool(5);
 
 
-    public RestService(UserRepository userRepository){ //, WordRepository wordRepository, GameRepository gameRepository) {
+    public RestService(UserRepository userRepository, QuestionRepository questionRepository,
+                       SurveyRepository surveyRepository) {
         this.userRepository = userRepository;
-//        this.wordRepository = wordRepository;
-//        this.gameRepository = gameRepository;
+        this.questionRepository = questionRepository;
+        this.surveyRepository = surveyRepository;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -37,8 +40,7 @@ public class RestService {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> create(@RequestBody User user)
-    {
+    public ResponseEntity<?> createUser(@RequestBody User user) {
         System.out.println("Creating user...");
         userRepository.add(user);
         return new ResponseEntity<>(HttpStatus.OK);

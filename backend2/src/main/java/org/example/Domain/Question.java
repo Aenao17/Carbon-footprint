@@ -1,12 +1,15 @@
 package org.example.Domain;
 
+
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 
 @jakarta.persistence.Entity
 @Table(name = "Questions")
-public class Question {
+public class Question implements org.example.Domain.Entity<Integer> {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // Use IDENTITY or AUTO generation
     @Column(name = "id")
     private Integer id;
 
@@ -15,6 +18,10 @@ public class Question {
 
     public Question(Integer id, String text) {
         this.id = id;
+        this.text = text;
+    }
+
+    public Question(String text) {
         this.text = text;
     }
 
